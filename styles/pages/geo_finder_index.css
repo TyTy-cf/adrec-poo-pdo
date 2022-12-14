@@ -1,0 +1,13 @@
+
+body {
+    background-color: #b0cdff;
+}
+
+.user {
+    background-color: green;
+    color: antiquewhite;
+    padding: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    box-shadow: 0.3em 0.3em 0 0.1em #1a1e21;
+}
