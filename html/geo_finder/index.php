@@ -5,16 +5,21 @@ include_once '../partials/_header.php';
 include_once '../../models/geo_finder/User.php';
 include_once '../../models/geo_finder/Game.php';
 
-$user = new User();
-$user->setUsername('Bébert');
+session_start();
 
-$game = new Game();
-$game->setUser($user);
-$game->setHasZoom(true);
+$user = null;
+
+if (isset($_SESSION['user'])) {
+    $user = unserialize($_SESSION['user']);
+
+    $game = new Game();
+    $game->setUser($user);
+}
 
 ?>
 
 <div class="container">
+    <?php if ($user !== null) { ?>
     <div class="d-flex justify-content-between">
         <h1>Nouvelle partie !</h1>
         <div class="user">
@@ -51,6 +56,9 @@ $game->setHasZoom(true);
             > Non
         </div>
     </div>
+    <?php } else { ?>
+        <p>Vous devez vous connecter pour voir cette page</p>
+    <?php } ?>
 </div>
 
 <?php

@@ -10,6 +10,6 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="/index.php">Home</a>
                 <a class="navbar-brand" href="/html/cours/cours.php">Cours</a>
-                <a class="navbar-brand" href="/html/geo_finder/index.php">Exo GeoFinder</a>
+                <a class="navbar-brand" href="/html/geo_finder/register.php">Exo GeoFinder</a>
             </div>
         </nav>
