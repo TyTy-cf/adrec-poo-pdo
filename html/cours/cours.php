@@ -3,10 +3,12 @@
 include_once '../../models/cours/Brand.php';
 include_once '../../models/cours/Model.php';
 
+// Appeller le constructeur de Brand, qui prend 2 paramètres
 $ford = new Brand(1, 'Ford');
 
-$escort = new Model(); // => nouvelle instance de la classe Model (donc un objet)
-$escort->setBrand($ford);
+// Ici on ne passe aucun paramètre à Model() car on a aucun constructeur => constructeur vide
+$escort = new Model(); // => appel IMPLICITEMENT le constructeur
+$escort->setBrand($ford); // => appelle la fonction setBrand de notre objet
 $escort->setName('Escort');
 
 $fiesta = new Model(); // => nouvelle instance de la classe Model (donc un objet)

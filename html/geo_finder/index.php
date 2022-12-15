@@ -12,7 +12,6 @@ $game = new Game();
 $game->setUser($user);
 $game->setHasZoom(true);
 
-
 ?>
 
 <div class="container">
