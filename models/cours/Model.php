@@ -3,19 +3,9 @@
 class Model
 {
 
-    private string $name;
+    use TraitName;
 
     private Brand $brand;
-
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): void
-    {
-        $this->name = $name;
-    }
 
     public function getBrand(): Brand {
         return $this->brand;

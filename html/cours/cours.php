@@ -1,5 +1,6 @@
 <?php
 
+include_once '../../models/cours/TraitName.php';
 include_once '../../models/cours/Brand.php';
 include_once '../../models/cours/Model.php';
 
@@ -9,7 +10,7 @@ $ford = new Brand(1, 'Ford');
 // Ici on ne passe aucun paramètre à Model() car on a aucun constructeur => constructeur vide
 $escort = new Model(); // => appel IMPLICITEMENT le constructeur
 $escort->setBrand($ford); // => appelle la fonction setBrand de notre objet
-$escort->setName('Escort');
+$escort->setName('Escorte');
 
 $fiesta = new Model(); // => nouvelle instance de la classe Model (donc un objet)
 $fiesta->setBrand($ford);

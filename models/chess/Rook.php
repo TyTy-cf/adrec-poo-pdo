@@ -7,8 +7,7 @@ class Rook extends Piece
 
     public function move(): void
     {
-        echo 'Move dans la classe Rook';
-        echo '</br>';
+        // TODO: Implement move() method.
     }
 
 }
