@@ -13,6 +13,8 @@ abstract class Piece
     public function __construct(string $color)
     {
         $this->color = $color;
+        // $this::class => renvoie le nom de la classe
+        $this->setImage(strtolower($this::class) . '-' . $this->color . '.png');
     }
 
     /**

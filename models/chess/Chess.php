@@ -19,11 +19,11 @@ class Chess
 
     public function __construct()
     {
+        $colorSquare = 'white';
         for ($y = 8; $y >= 1; $y--) {
             for ($x = 1; $x <= 8; $x++) {
                 $piece = null;
                 $colorPiece = 'black';
-                $colorSquare = 'white';
                 if ($y === 2 || $y === 1) {
                     $colorPiece = 'white';
                 }
@@ -50,27 +50,24 @@ class Chess
                 $square = new Square($colorSquare, $x, $y, $piece);
                 $this->board[] = $square;
 
-                if ($piece instanceof Piece) {
-                    echo "c'est une pièce !!";
-                    echo "</br>";
+                if ($x < 8) {
+                    if ($colorSquare === 'white') {
+                        $colorSquare = 'black';
+                    } else {
+                        $colorSquare = 'white';
+                    }
                 }
-
             }
         }
+        var_dump($this->board);
+    }
 
-//        var_dump($this->board);
-
-        foreach ($this->board as $square) {
-            /**
-             * @var Square $square
-             */
-            if ($square->getPiece() !== null) {
-                $square->getPiece()->move();
-            } else {
-                echo 'Pas de pièce, pas de move !';
-                echo '<br>';
-            }
-        }
+    /**
+     * @return Square[]
+     */
+    public function getBoard(): array
+    {
+        return $this->board;
     }
 
 }
