@@ -88,8 +88,9 @@ class Category
         return $this->childrenCategories;
     }
 
-    public function addGame(Category $category): void {
+    public function addChildren(Category $category): void {
         $this->childrenCategories[] = $category;
+        $category->setParent($this);
     }
 
 }
