@@ -16,6 +16,15 @@ if (isset($_SESSION['user'])) {
     $game->setUser($user);
 }
 
+// Instancier les maps
+$world = new Map();
+$world->setName('World');
+$world->setImage('https://www.geoguessr.com/images/auto/336/168/ce/0/plain/map/3f950f0318b9086b1b9ec591206dfdd8.jpg');
+
+// etc...
+
+$maps = [$world];
+
 ?>
 
 <div class="container">
@@ -26,6 +35,10 @@ if (isset($_SESSION['user'])) {
             <p><?= $user->getUsername() ?></p>
             <strong>LvL. <?= $user->getLevel() ?></strong>
         </div>
+    </div>
+    <div>
+        <h2>Les cartes disponibles</h2>
+
     </div>
     <div>
         <div>
