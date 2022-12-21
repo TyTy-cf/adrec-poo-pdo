@@ -4,7 +4,7 @@ include_once 'Map.php';
 include_once 'User.php';
 include_once 'Round.php';
 
-class Game
+class GeoGame
 {
 
     private int $id;

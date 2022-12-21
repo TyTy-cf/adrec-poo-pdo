@@ -3,7 +3,7 @@
 include_once '../partials/_header.php';
 
 include_once '../../models/geo_finder/User.php';
-include_once '../../models/geo_finder/Game.php';
+include_once '../../models/geo_finder/GeoGame.php';
 
 session_start();
 

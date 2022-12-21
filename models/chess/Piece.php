@@ -51,4 +51,8 @@ abstract class Piece
 
     public abstract function move(): void;
 
+    public function toDie(): void {
+        echo 'La piece a été monjé';
+    }
+
 }

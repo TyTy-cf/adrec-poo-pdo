@@ -1,6 +1,6 @@
 <?php
 
-include_once 'Game.php';
+include_once 'GeoGame.php';
 
 class User
 {

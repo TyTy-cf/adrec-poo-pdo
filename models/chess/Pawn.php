@@ -12,4 +12,5 @@ class Pawn extends Piece
         echo 'Move dans la classe Pawn';
         echo '</br>';
     }
+
 }
