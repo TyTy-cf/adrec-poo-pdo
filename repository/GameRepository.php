@@ -73,4 +73,12 @@ class GameRepository
             ->query('CREATE TABLE example (id int(6) auto_increment not null, name varchar(255) not null, primary key(id)) engine=InnoDB;');
     }
 
+    public function findLastReleased(int $limit = 6): array {
+        $query = $this->pdo
+            ->prepare('SELECT * FROM game ORDER BY game.published_at DESC LIMIT ?');
+        $query->bindValue(1, $limit, PDO::PARAM_INT);
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_CLASS, Game::class);
+    }
+
 }

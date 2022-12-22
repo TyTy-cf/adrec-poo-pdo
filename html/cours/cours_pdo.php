@@ -12,14 +12,14 @@ $gameRepository = new GameRepository();
 
 //$gameRepository->createTableExample();
 
-$game = (new Game())
-    ->setName('Pokémon : Violet')
-    ->setSlug('pokemon-violet')
-    ->setPrice(44.0)
-    ->setPublishedAt('2022-11-19 00:00:00')
-    ->setPublisherId(null)
-    ->setDescription('Oui')
-    ->setThumbnailCover('https://www.pokepedia.fr/images/1/12/Jaquette_de_Pok%C3%A9mon_Violet.png')
-    ->setThumbnailLogo(null)
-;
-$game = $gameRepository->addGame($game);
+//$game = (new Game())
+//    ->setName('Pokémon : Violet')
+//    ->setSlug('pokemon-violet')
+//    ->setPrice(44.0)
+//    ->setPublishedAt('2022-11-19 00:00:00')
+//    ->setPublisherId(null)
+//    ->setDescription('Oui')
+//    ->setThumbnailCover('https://www.pokepedia.fr/images/1/12/Jaquette_de_Pok%C3%A9mon_Violet.png')
+//    ->setThumbnailLogo(null)
+//;
+////$game = $gameRepository->addGame($game);
