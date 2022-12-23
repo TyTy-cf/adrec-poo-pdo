@@ -9,11 +9,14 @@ abstract class AbstractRepository
     private string $url = 'mysql:host=127.0.0.1:3307;dbname=db-steamish-v3';
     private string $user = 'root';
     private string $pwd = '';
+
+    protected string $className;
     private string $lowerClassName;
 
-    public function __construct(protected string $className)
+    public function __construct(string $className)
     {
         $this->pdo = new PDO($this->url, $this->user, $this->pwd);
+        $this->className = $className;
         $this->lowerClassName = strtolower($this->className);
     }
 
@@ -62,6 +65,8 @@ abstract class AbstractRepository
                 $i++;
             }
         }
+
+        var_dump($strQuery);
 
         $query = $this->pdo->query($strQuery);
 

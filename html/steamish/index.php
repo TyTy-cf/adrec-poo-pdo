@@ -4,11 +4,14 @@ include_once '../../html/partials/_header.php';
 
 include_once '../../models/steamish/Game.php';
 include_once '../../models/steamish/Genre.php';
+include_once '../../models/steamish/Country.php';
 include_once '../../repository/GameRepository.php';
 include_once '../../repository/GenreRepository.php';
+include_once '../../repository/CountryRepository.php';
 
 $gameRepo = new GameRepository();
 $genreRepo = new GenreRepository();
+$countryRepo = new CountryRepository();
 
 ?>
 
