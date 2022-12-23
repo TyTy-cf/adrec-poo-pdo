@@ -33,6 +33,30 @@ $gameRepo = new GameRepository();
         }
         ?>
     </div>
+
+    <h2 class="my-3">Les plus joués</h2>
+    <div class="row">
+        <?php
+        foreach ($gameRepo->findMostPlayed(4) as $lastReleased) {
+            /** @var Game $lastReleased */
+            ?>
+            <div class="col-3">
+                <div class="container-img">
+                    <img alt="<?= $lastReleased->getName() ?>"
+                         src="<?= $lastReleased->getThumbnailCover() ?>"
+                    >
+                    <div class="container-infos">
+                        <?= $lastReleased->getPrice() ?>€
+                    </div>
+                </div>
+                <p class="text-center">
+                    <strong><?= $lastReleased->getName() ?></strong>
+                </p>
+            </div>
+            <?php
+        }
+        ?>
+    </div>
 </div>
 
 <?php

@@ -81,4 +81,12 @@ class GameRepository
         return $query->fetchAll(PDO::FETCH_CLASS, Game::class);
     }
 
+    public function findMostPlayed(int $limit = 6): array {
+        $query = $this->pdo
+            ->prepare('SELECT game.* FROM game JOIN library ON library.game_id = game.id GROUP BY game.id ORDER BY SUM(library.game_time) DESC LIMIT ?');
+        $query->bindValue(1, $limit, PDO::PARAM_INT);
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_CLASS, Game::class);
+    }
+
 }
