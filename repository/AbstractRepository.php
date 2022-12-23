@@ -36,6 +36,14 @@ abstract class AbstractRepository
         return $query->fetchObject($this->className);
     }
 
+    public function findOneBy(array $columns): mixed {
+        // $columns : ['name' => 'Pokémon Violet']
+        // tableau "Key, Valeur", où la "key" est le nom d'une colonne de ta table
+//        foreach ($columns as $columnName => $columnValue) {
+//
+//        }
+    }
+
     public function findBy(
         array $columns,
         string $orderBy = null,
