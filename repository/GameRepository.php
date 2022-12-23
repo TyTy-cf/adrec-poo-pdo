@@ -65,4 +65,19 @@ class GameRepository extends AbstractRepository
         return $query->fetchAll(PDO::FETCH_CLASS, Game::class);
     }
 
+    public function findBestSellers(int $limit = 6): array {
+        $query = $this->pdo
+            ->prepare('SELECT game.* FROM game JOIN library ON library.game_id = game.id GROUP BY game.id ORDER BY COUNT(game.id) DESC LIMIT ?');
+        $query->bindValue(1, $limit, PDO::PARAM_INT);
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_CLASS, Game::class);
+    }
+
+    public function findTendencies(int $limit = 6): array {
+        $query = $this->pdo
+            ->prepare('SELECT * FROM game ORDER BY game.name DESC LIMIT ?');
+        $query->bindValue(1, $limit, PDO::PARAM_INT);
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_CLASS, Game::class);
+    }
 }

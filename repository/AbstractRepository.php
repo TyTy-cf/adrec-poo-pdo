@@ -36,12 +36,40 @@ abstract class AbstractRepository
         return $query->fetchObject($this->className);
     }
 
+    /**
+     * @throws Exception
+     */
     public function findOneBy(array $columns): mixed {
-        // $columns : ['name' => 'Pokémon Violet']
-        // tableau "Key, Valeur", où la "key" est le nom d'une colonne de ta table
-//        foreach ($columns as $columnName => $columnValue) {
-//
-//        }
+        $strQuery = 'SELECT * FROM ' . $this->lowerClassName;
+        if (sizeof($columns) > 0) {
+            $strQuery .= ' WHERE ';
+            $i = 0;
+            foreach ($columns as $columnName => $columnValue) {
+                if ($i > 0 && $i < sizeof($columns)) {
+                    $strQuery .= ' AND ';
+                }
+                if ($columnValue instanceof DateTime) {
+                    $strQuery .= 'DATE_FORMAT(' . $columnName . ', "%Y/%m/%d") = "' . date_format($columnValue, 'Y/m/d') . '"';
+                } elseif (is_string($columnValue)) {
+                    if (str_contains($columnValue, '%')) {
+                        $strQuery .= $columnName . ' LIKE "' . $columnValue . '"';
+                    } else {
+                        $strQuery .= $columnName . ' = "' . $columnValue . '"';
+                    }
+                } else {
+                    $strQuery .= $columnName . ' = ' . $columnValue;
+                }
+                $i++;
+            }
+        }
+
+        $query = $this->pdo->query($strQuery);
+
+        if (sizeof($query->fetchAll(PDO::FETCH_CLASS, $this->className)) > 1) {
+            throw new Exception('Cannot fetch one object from params');
+        }
+
+        return $this->pdo->query($strQuery)->fetchObject($this->className);
     }
 
     public function findBy(
